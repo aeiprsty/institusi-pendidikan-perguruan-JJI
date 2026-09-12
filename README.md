@@ -148,7 +148,7 @@ streamlit run app.py
 
 Setelah aplikasi berjalan, buka alamat yang diberikan oleh Streamlit pada browser.
 
-ATAU dapat mengakses Streamlit Community Cloud berikut:
+ATAU dapat mengakses **Streamlit Community Cloud** berikut:
 ```
 https://student-dropout-risk-prediction-jji.streamlit.app/
 ```
