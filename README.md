@@ -102,29 +102,29 @@ Kemudian buka file notebook yang terdapat pada folder proyek.
 
 #### 4. Menjalankan Dashboard Metabase
 
-Dashboard dibuat menggunakan Metabase dengan database SQLite.
+Dashboard dibuat menggunakan Metabase dan database SQLite.
 
-Pastikan Docker Desktop telah berjalan dan container Metabase telah dibuat. Database SQLite yang digunakan adalah:
+1. Pastikan Docker Desktop sudah berjalan.
+2. Jalankan container Metabase dengan perintah berikut pada PowerShell:
 
-```text
-student_dropout.db
+```powershell
+docker run -d -p 3000:3000 -v "D:\submission2:/data" -e "MB_DB_TYPE=h2" -e "MB_DB_FILE=/data/metabase.db" --name metabase metabase/metabase
+  ```
+3. Tunggu hingga Metabase selesai melakukan proses inisialisasi. Status dapat diperiksa dengan:
+```
+curl.exe http://localhost:3000/api/health
 ```
 
-File database ditempatkan pada folder yang di-mount ke container Metabase.
-
-Metabase dapat dijalankan melalui:
-
-```text
-http://localhost:3000
+Pastikan hasilnya menunjukkan:
+```
+{"status":"ok"}
 ```
 
-Setelah Metabase aktif, database SQLite dapat dihubungkan menggunakan path:
-
-```text
-/data/student_dropout.db
-```
-
-Dashboard yang telah dibuat dapat dibuka melalui koleksi **Personal Collection** pada Metabase.
+4. Buka Metabase melalui: http://127.0.0.1:3000/
+5. Login menggunakan kredensial Metabase berikut:
+- Username: root@mail.com
+- Password: root123
+7. Setelah berhasil login, pilih menu Your personal collection, kemudian klik koleksi yang berjudul "Student Dropout Analytics Dashboard" untuk membuka dashboard.
 
 #### 5. Menjalankan Prototype Streamlit
 
@@ -150,7 +150,7 @@ Setelah aplikasi berjalan, buka alamat yang diberikan oleh Streamlit pada browse
 
 ATAU dapat mengakses Streamlit Community Cloud berikut:
 ```
-blank
+https://student-dropout-risk-prediction-jji.streamlit.app/
 ```
 
 ## Business Dashboard
